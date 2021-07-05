@@ -13,4 +13,10 @@ export function saveTodo (task) {
   }
 }
 
-export fou
+export function addTodo (task, id) {
+  return {
+    type: 'ADD_TODO',
+    id,
+    task
+  }
+}
