@@ -15,6 +15,7 @@ function AddTodo (props) {
   function handleSubmit (evt) {
     evt.preventDefault()
     props.dispatch(saveTodo(todo))
+    setTodo('')
   }
   return (
     <>
