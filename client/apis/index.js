@@ -18,4 +18,6 @@ export function createTodo (todo) {
     .then(res => {
       return res.body
     })
+    .catch(e =>
+      console.log(e))
 }
