@@ -1,10 +1,11 @@
 import request from 'superagent'
 
-const rootUrl = '/ap1/v1'
+const rootUrl = '/api/v1/'
 
 export function fetchTodos () {
-  return request.get(rootUrl + 'tasks')
+  return request.get(rootUrl + 'todos')
     .then(res => {
+      console.log('result received')
       return res.body
     })
     .catch(e =>
@@ -13,7 +14,7 @@ export function fetchTodos () {
 
 export function createTodo (todo) {
   return request
-    .post(rootUrl + '/todos')
+    .post(rootUrl + 'todos')
     .send({ todo })
     .then(res => {
       return res.body

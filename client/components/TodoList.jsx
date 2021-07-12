@@ -5,12 +5,13 @@ import TodoItem from './TodoItem'
 import { fetchTodos } from '../apis/index'
 
 function TodoList () {
-  const [taskUseState, setTaskUseState] = useState([])
+  const [todo, setTodo] = useState([{ id: '', task: '' }])
 
   useEffect(() => {
     return fetchTodos()
-      .then(tasks => {
-        setTaskUseState(tasks)
+      .then(todos => {
+        console.log(todos)
+        setTodo(todos)
         return null
       })
   }, [])
@@ -18,9 +19,9 @@ function TodoList () {
   return (
     <>
       <div>
-        {taskUseState.map(task => {
+        {todo.map(todo => {
           return (
-            <TodoItem key={task.id} task={task} />
+            <TodoItem key={todo.id} todo={todo.task} />
           )
         })}
       </div>

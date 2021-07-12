@@ -5,9 +5,11 @@ const { saveTodo } = require('../db')
 const { getTodos } = require('../db/index')
 
 router.get('/', (req, res) => {
+  console.log('route fired')
   getTodos()
     .then(results => {
       res.json(results)
+
       return null
     })
     .catch(err => {
