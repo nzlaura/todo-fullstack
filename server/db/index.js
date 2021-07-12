@@ -6,7 +6,7 @@ function getTodos (db = connection) {
 }
 
 function saveTodo (task, db = connection) {
-  return connection('todos')
+  return db('todos')
     .insert({ task })
 }
 

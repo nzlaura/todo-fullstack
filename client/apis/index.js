@@ -5,7 +5,6 @@ const rootUrl = '/api/v1/'
 export function fetchTodos () {
   return request.get(rootUrl + 'todos')
     .then(res => {
-      console.log('result received')
       return res.body
     })
     .catch(e =>

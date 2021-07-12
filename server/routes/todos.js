@@ -5,11 +5,9 @@ const { saveTodo } = require('../db')
 const { getTodos } = require('../db/index')
 
 router.get('/', (req, res) => {
-  console.log('route fired')
   getTodos()
     .then(results => {
       res.json(results)
-
       return null
     })
     .catch(err => {
@@ -19,8 +17,10 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  saveTodo(req.body.task)
+  console.log(req.body.todo)
+  saveTodo(req.body.todo)
     .then(ids => {
+      console.log('db insert completed')
       res.status(201).json(ids[0])
       return null
     })
