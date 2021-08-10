@@ -7,6 +7,8 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case 'ADD_TODO':
       return [...state, { id, task }]
+    case 'DEL_TODO':
+      return state.filter((task) => task.id !== id)
     default:
       return state
   }
