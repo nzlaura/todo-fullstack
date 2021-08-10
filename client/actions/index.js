@@ -22,3 +22,25 @@ export function addTodo (task, id) {
     task
   }
 }
+
+// action to delete TODO
+
+export function delTodo (id) {
+  return (dispatch) => {
+    deleteTodo(id)
+      .then(() => {
+        dispatch(removeTodo(id))
+        return null
+      })
+      .catch(() => {
+        console.log('error: task cannot be deleted')
+      })
+  }
+}
+
+export function removeTodo (id) {
+  return {
+    type: 'DEL_TODO',
+    id
+  }
+}
