@@ -21,3 +21,12 @@ export function createTodo (todo) {
     .catch(e =>
       console.log(e))
 }
+
+// api function for deleting a todo
+
+export function deleteTodo (id) {
+  return request.delete(`${rootUrl + '/todos'}/${id}`)
+    .then(res => res.body)
+    .catch(e =>
+      console.log(e))
+}

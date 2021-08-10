@@ -1,4 +1,4 @@
-import { createTodo } from '../apis'
+import { createTodo, deleteTodo } from '../apis'
 
 export function saveTodo (task) {
   console.log('dispatch firing')
