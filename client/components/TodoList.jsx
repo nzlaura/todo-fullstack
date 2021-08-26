@@ -20,15 +20,15 @@ function TodoList (props) {
   return (
     <>
       <div>
-        <ul>
-          {todo.map(todo => {
-            return (
 
-              <TodoItem key={todo.id} todo={todo.task} />
+        {todo.map(todo => {
+          return (
 
-            )
-          })}
-        </ul>
+            <TodoItem key={todo.id} todo={todo.task} />
+
+          )
+        })}
+
       </div>
     </>
   )

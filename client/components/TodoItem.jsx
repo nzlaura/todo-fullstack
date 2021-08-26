@@ -12,10 +12,12 @@ function TodoItem (props) {
 
   return (
     <>
-      <li>
-        <p className='todo-list li'>{todo}</p>
-        <button className='destroy' onClick={handleDelete}>Delete Task</button>
-      </li>
+      <ul>
+        <li>
+          <p className='todo-list li'>{todo}</p>
+          <button className='button' onClick={handleDelete}>Delete Task</button>
+        </li>
+      </ul>
 
     </>
   )
