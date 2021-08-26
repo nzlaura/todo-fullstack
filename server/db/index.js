@@ -11,29 +11,29 @@ function saveTodo (task, db = connection) {
 }
 
 function deleteTodo (id, db = connection) {
-  return db('tasks')
+  return db('todos')
     .where('id', id)
     .first()
     .then(() => {
-      return db('tasks')
+      return db('todos')
         .where('id', id)
         .delete()
     })
     .then(() => db)
-    .then(getTasks)
+    .then(getTodos)
 }
 
 function updateTodo (newTaskDetail, db = connection) {
-  return db('tasks')
+  return db('todos')
     .where('id', newTaskDetail.id)
     .first()
     .then(() => {
-      return db('tasks')
+      return db('todos')
         .where('id', newTaskDetail.id)
         .update(newTaskDetail)
     })
     .then(() => db)
-    .then(getTasks)
+    .then(getTodos)
 }
 
 module.exports = {

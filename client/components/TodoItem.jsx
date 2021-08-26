@@ -4,7 +4,7 @@ import connect from 'react-redux'
 import { delTodo } from '../actions'
 
 function TodoItem (props) {
-  const { todo } = props
+  const { todo, id } = props
 
   function handleDelete () {
     props.dispatch(delTodo(id))
@@ -14,8 +14,9 @@ function TodoItem (props) {
     <div>
       <ul>
         <p className='todo-list li'><li>{todo}</li></p>
+        <button onClick={handleDelete}>Delete Task</button>
       </ul>
-      <ul><button onClick={handleDelete}>Delete Task</button></ul>
+
     </div>
   )
 }
