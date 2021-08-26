@@ -44,3 +44,10 @@ export function removeTodo (id) {
     id
   }
 }
+
+export function setTodos (task) {
+  return {
+    type: 'SET_TODOS',
+    task
+  }
+}
