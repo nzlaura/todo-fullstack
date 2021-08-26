@@ -23,14 +23,14 @@ function deleteTodo (id, db = connection) {
     .then(getTodos)
 }
 
-function updateTodo (newTaskDetail, db = connection) {
+function updateTodo (newTask, db = connection) {
   return db('todos')
-    .where('id', newTaskDetail.id)
+    .where('id', newTask.id)
     .first()
     .then(() => {
       return db('todos')
-        .where('id', newTaskDetail.id)
-        .update(newTaskDetail)
+        .where('id', newTask.id)
+        .update(newTask)
     })
     .then(() => db)
     .then(getTodos)
