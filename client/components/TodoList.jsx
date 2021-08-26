@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 
 import TodoItem from './TodoItem'
 
 import { fetchTodos } from '../apis/index'
 
-function TodoList () {
+function TodoList (props) {
   const [todo, setTodo] = useState([{ id: '', task: '' }])
 
   useEffect(() => {
@@ -29,4 +30,8 @@ function TodoList () {
   )
 }
 
-export default TodoList
+function mapStateToProps (state) {
+  return { todos: state.todos }
+}
+
+export default connect(mapStateToProps)(TodoList)
