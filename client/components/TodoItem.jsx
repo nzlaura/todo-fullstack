@@ -1,5 +1,5 @@
 import React from 'react'
-import connect from 'react-redux'
+import { connect } from 'react-redux'
 
 import { delTodo } from '../actions'
 
@@ -11,14 +11,18 @@ function TodoItem (props) {
   }
 
   return (
-    <div>
-      <ul>
-        <p className='todo-list li'><li>{todo}</li></p>
-        <button onClick={handleDelete}>Delete Task</button>
-      </ul>
+    <>
+      <li>
+        <p className='todo-list li'>{todo}</p>
+        <button className='destroy' onClick={handleDelete}>Delete Task</button>
+      </li>
 
-    </div>
+    </>
   )
 }
 
-export default TodoItem
+function mapStateToProps (state) {
+  return { todos: state.todos }
+}
+
+export default connect(mapStateToProps)(TodoItem)
